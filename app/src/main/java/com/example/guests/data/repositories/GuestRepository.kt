@@ -4,6 +4,7 @@ import android.content.ContentValues
 import android.content.Context
 import com.example.guests.data.data_sources.GuestDataSource
 import com.example.guests.data.model.Guest
+import com.example.guests.data.utils.GuestConstants
 
 class GuestRepository private constructor(context: Context) {
     private val dataSource = GuestDataSource(context)
@@ -13,7 +14,7 @@ class GuestRepository private constructor(context: Context) {
 
         // Get an Singleton instance of class
         fun instance(context: Context): GuestRepository {
-            if (Companion::repository.isInitialized) {
+            if (!::repository.isInitialized) {
                 repository = GuestRepository(context)
             }
 
@@ -26,10 +27,12 @@ class GuestRepository private constructor(context: Context) {
             val db = dataSource.writableDatabase
 
             val values = ContentValues()
-            values.put("name", guest.name)
-            values.put("presence", guest.presence)
+            values.put(GuestConstants.GuestDataSource.COLUMNS.NAME, guest.name)
+            values.put(GuestConstants.GuestDataSource.COLUMNS.PRESENCE, guest.presence)
 
-            db.insert("Guest", null, values)
+            db.insert(
+                GuestConstants.GuestDataSource.TABLE_NAME, null, values
+            )
             true
         } catch (e: Exception) {
             false

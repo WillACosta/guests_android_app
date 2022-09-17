@@ -12,19 +12,17 @@ class GuestFormActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityGuestFormBinding.inflate(layoutInflater)
-        viewModel = ViewModelProvider(this)[GuestFormvViewModel::class.java]
-
         setContentView(binding.root)
-        setListeners()
 
+        viewModel = ViewModelProvider(this)[GuestFormvViewModel::class.java]
         binding.radioPresent.isChecked = true
+
+        setListeners()
     }
 
     private fun setListeners() {
-        binding.buttonSave.setOnClickListener { view ->
-
+        binding.buttonSave.setOnClickListener {
             val name = binding.edtName.text.toString()
             val presence = binding.radioPresent.isChecked
 

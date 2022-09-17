@@ -8,8 +8,9 @@ import com.example.guests.data.repositories.GuestRepository
 
 // AndroidViewModel provides the context
 class GuestFormvViewModel(application: Application) : AndroidViewModel(application) {
-    private val repository = GuestRepository.instance(application)
+    private val repository = GuestRepository.instance(application.applicationContext)
 
+    // We can use LiveData to observa repository response
     fun save(guest: Guest) {
         repository.save(guest)
     }
