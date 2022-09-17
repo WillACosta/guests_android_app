@@ -14,4 +14,8 @@ class GuestFormvViewModel(application: Application) : AndroidViewModel(applicati
     fun save(guest: Guest) {
         repository.save(guest)
     }
+
+    fun getAll() {
+        repository.getAll()
+    }
 }

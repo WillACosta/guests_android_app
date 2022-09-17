@@ -16,8 +16,8 @@ class GuestDataSource(context: Context) : SQLiteOpenHelper(context, DB_NAME, nul
         db.execSQL(
             "CREATE TABLE ${GuestConstants.GuestDataSource.TABLE_NAME} (" +
                     "${GuestConstants.GuestDataSource.COLUMNS.ID} integer primary key autoincrement," +
-                    "${GuestConstants.GuestDataSource.COLUMNS.ID} text," +
-                    "${GuestConstants.GuestDataSource.COLUMNS.ID} integer);"
+                    "${GuestConstants.GuestDataSource.COLUMNS.NAME} text," +
+                    "${GuestConstants.GuestDataSource.COLUMNS.PRESENCE} integer);"
         )
     }
 
