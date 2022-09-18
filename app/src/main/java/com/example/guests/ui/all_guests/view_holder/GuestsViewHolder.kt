@@ -25,7 +25,7 @@ class GuestsViewHolder(private val bind: RowGuestBinding, private val listener: 
 //            }
 //        })
 
-        bind.guestName.setOnLongClickListener {
+        bind.buttonExclude.setOnClickListener {
             AlertDialog.Builder(itemView.context)
                 .setTitle("Removing...")
                 .setMessage("Are you sure?")
@@ -33,8 +33,6 @@ class GuestsViewHolder(private val bind: RowGuestBinding, private val listener: 
                 .setNegativeButton("No", null)
                 .create()
                 .show()
-
-            true
         }
     }
 }
