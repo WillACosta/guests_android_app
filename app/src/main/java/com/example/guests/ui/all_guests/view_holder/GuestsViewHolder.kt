@@ -1,8 +1,5 @@
 package com.example.guests.ui.all_guests.view_holder
 
-
-import android.view.DragEvent
-import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.example.guests.data.model.Guest

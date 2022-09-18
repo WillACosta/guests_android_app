@@ -1,3 +1,20 @@
 package com.example.guests.data.model
 
-data class Guest(val id: Int, var name: String, var presence: Boolean)
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import com.example.guests.data.utils.GuestConstants
+
+@Entity(tableName = GuestConstants.GuestDataSource.TABLE_NAME)
+class Guest() {
+
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo
+    var id: Int = 0
+
+    @ColumnInfo
+    var name: String = ""
+
+    @ColumnInfo
+    var presence: Boolean = false
+}
