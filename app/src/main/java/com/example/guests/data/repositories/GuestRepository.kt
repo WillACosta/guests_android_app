@@ -191,4 +191,47 @@ class GuestRepository private constructor(context: Context) {
             list
         }
     }
+
+    fun getGuestById(id: Int): Guest? {
+
+        var guest: Guest? = null
+
+        return try {
+            val db = dataSource.readableDatabase
+
+            val projection = arrayOf(
+                GuestConstants.GuestDataSource.COLUMNS.NAME,
+                GuestConstants.GuestDataSource.COLUMNS.PRESENCE
+            )
+
+            val selection = GuestConstants.GuestDataSource.COLUMNS.ID + " = ?"
+            val args = arrayOf(id.toString())
+
+            val cursor = db.query(
+                GuestConstants.GuestDataSource.TABLE_NAME,
+                projection,
+                selection,
+                args,
+                null,
+                null,
+                null
+            )
+
+            if (cursor != null && cursor.count > 0) {
+                cursor.moveToFirst()
+
+                val name =
+                    cursor.getString(cursor.getColumnIndex(GuestConstants.GuestDataSource.COLUMNS.NAME))
+                val presence =
+                    (cursor.getInt(cursor.getColumnIndex(GuestConstants.GuestDataSource.COLUMNS.PRESENCE)) == 1)
+
+                guest = Guest(id, name, presence)
+            }
+
+            cursor?.close()
+            guest
+        } catch (e: Exception) {
+            guest
+        }
+    }
 }

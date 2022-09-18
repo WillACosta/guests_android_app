@@ -9,7 +9,6 @@ import com.example.guests.data.model.Guest
 import com.example.guests.data.repositories.GuestRepository
 
 class AllGuestsViewModel(application: Application) : AndroidViewModel(application) {
-
     private val repository = GuestRepository.instance(application.applicationContext)
     private val _allGuests = MutableLiveData<List<Guest>>()
 

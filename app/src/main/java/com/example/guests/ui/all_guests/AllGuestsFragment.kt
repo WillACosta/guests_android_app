@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.guests.data.utils.GuestConstants
 import com.example.guests.databinding.FragmentAllGuestsBinding
 import com.example.guests.ui.all_guests.adapters.GuestsAdapter
 import com.example.guests.ui.all_guests.listeners.OnGuestListener
@@ -34,8 +35,12 @@ class AllGuestsFragment : Fragment() {
         setListeners()
         configureRecyclerView()
 
-        viewModel.getAll() // refactor: change location of this
         return binding.root
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.getAll()
     }
 
     override fun onDestroyView() {
@@ -55,11 +60,11 @@ class AllGuestsFragment : Fragment() {
 
         val listener = object : OnGuestListener {
             override fun onClick(id: Int) {
-                // go to guest form activity and update data
-                // pass extra to intent
+                val intent = Intent(context, GuestFormActivity::class.java)
 
-                // val intent = Intent(context, GuestFormActivity::class.java)
-                // intent.putExtra('guest', null)
+                val bundle = Bundle()
+                bundle.putInt(GuestConstants.GuestDataSource.GUEST_ID, id)
+                intent.putExtras(bundle)
             }
 
             override fun onDelete(id: Int) {
