@@ -1,13 +1,14 @@
 package com.example.guests.ui.guest
 
-import androidx.appcompat.app.AppCompatActivity
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.example.guests.R
 import com.example.guests.data.model.Guest
 import com.example.guests.data.utils.GuestConstants
 import com.example.guests.databinding.ActivityGuestFormBinding
-import com.google.android.material.snackbar.Snackbar
 
 class GuestFormActivity : AppCompatActivity() {
     private lateinit var binding: ActivityGuestFormBinding
@@ -22,6 +23,8 @@ class GuestFormActivity : AppCompatActivity() {
 
         viewModel = ViewModelProvider(this)[GuestFormvViewModel::class.java]
         binding.radioPresent.isChecked = true
+
+        getSupportActionBar()?.setBackgroundDrawable(ColorDrawable(resources.getColor(R.color.purple_700)))
 
         setListeners()
         loadData()

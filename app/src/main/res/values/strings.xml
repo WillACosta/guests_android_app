@@ -13,4 +13,10 @@
     <string name="all_guests">All Guests</string>
     <string name="present_guests">Present Guests</string>
     <string name="absent_guests">Absent Guests</string>
+    <string name="add_person_icon_button_alt">Add person icon button</string>
+    <string name="add_guest_text">Add guest</string>
+    <string name="name_field">Name</string>
+    <string name="radio_present">Present</string>
+    <string name="radio_absent">Absent</string>
+    <string name="delete_item_button_alt">Delete item button</string>
 </resources>

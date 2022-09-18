@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="16dp"
+    android:padding="20dp"
     tools:context=".ui.guest.GuestFormActivity">
 
     <EditText
@@ -12,7 +12,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:autofillHints=""
-        android:hint="Guest name"
+        android:backgroundTint="@color/purple_700"
+        android:hint="@string/name_field"
+        android:inputType="text"
+        android:textCursorDrawable="@null"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -22,6 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
+        android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/edt_name">
 
@@ -29,24 +33,27 @@
             android:id="@+id/radio_present"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Present"
-            app:layout_constraintTop_toBottomOf="@+id/edt_name" />
+            android:buttonTint="@color/purple_700"
+            android:text="@string/radio_present" />
 
         <RadioButton
             android:id="@+id/radio_absent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Absent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/radio_present" />
+            android:layout_marginStart="10dp"
+            android:buttonTint="@color/purple_700"
+            android:text="@string/radio_absent" />
     </RadioGroup>
 
-    <Button
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button_save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:text="Save"
+        android:text="@string/add_guest_text"
+        app:backgroundTint="@color/purple_700"
+        app:icon="@drawable/ic_add"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radio_group" />

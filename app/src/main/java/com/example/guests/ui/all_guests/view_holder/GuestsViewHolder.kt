@@ -15,19 +15,12 @@ class GuestsViewHolder(private val bind: RowGuestBinding, private val listener: 
             listener.onClick(guest.id)
         }
 
-        // improve with drag to exclude
-//        bind.guestName.setOnDragListener(object : View.OnDragListener {
-//            override fun onDrag(view: View?, drag: DragEvent?): Boolean {
-//
-//            }
-//        })
-
         bind.buttonExclude.setOnClickListener {
             AlertDialog.Builder(itemView.context)
-                .setTitle("Removing...")
-                .setMessage("Are you sure?")
-                .setPositiveButton("Yes") { _, _ -> listener.onDelete(guest.id) }
-                .setNegativeButton("No", null)
+                .setTitle("Delete guest")
+                .setMessage("Are you sure to delete this person?\nYou can't undo this action.")
+                .setPositiveButton("Delete") { _, _ -> listener.onDelete(guest.id) }
+                .setNegativeButton("Cancel", null)
                 .create()
                 .show()
         }
