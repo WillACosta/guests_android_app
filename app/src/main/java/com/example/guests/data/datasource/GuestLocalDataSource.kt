@@ -9,7 +9,7 @@ import com.example.guests.data.repositories.GuestDAO
 import com.example.guests.data.utils.GuestConstants
 
 @Database(entities = [Guest::class], version = 1)
-abstract class GuestLocalDataSource() : RoomDatabase() {
+abstract class GuestLocalDataSource : RoomDatabase() {
 
     abstract fun guestDAO(): GuestDAO
 

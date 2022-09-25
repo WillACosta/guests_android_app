@@ -10,22 +10,22 @@ import com.example.guests.data.utils.GuestConstants
 
 class GuestsViewModel(application: Application) : AndroidViewModel(application) {
     private val repository = GuestRepository(application.applicationContext)
-    private val _allGuests = MutableLiveData<List<Guest>>()
+    private val _guestsList = MutableLiveData<List<Guest>>()
 
-    val guests: LiveData<List<Guest>> = _allGuests
+    val guests: LiveData<List<Guest>> = _guestsList
 
     fun getGuests(type: Int = 0) {
         when (type) {
             GuestConstants.FILTER.ABSENTS -> {
-                repository.getAbsent()
+                _guestsList.value = repository.getAbsent()
             }
 
             GuestConstants.FILTER.PRESENTS -> {
-                repository.getPresent()
+                _guestsList.value =  repository.getPresent()
             }
 
             else -> {
-                repository.getAll()
+                _guestsList.value =  repository.getAll()
             }
         }
     }

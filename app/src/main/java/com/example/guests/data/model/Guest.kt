@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 import com.example.guests.data.utils.GuestConstants
 
 @Entity(tableName = GuestConstants.GuestDataSource.TABLE_NAME)
-class Guest() {
+class Guest {
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo
