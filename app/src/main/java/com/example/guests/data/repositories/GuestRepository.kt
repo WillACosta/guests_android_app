@@ -1,7 +1,7 @@
 package com.example.guests.data.repositories
 
 import android.content.Context
-import com.example.guests.data.data_sources.GuestLocalDataSource
+import com.example.guests.data.datasource.GuestLocalDataSource
 import com.example.guests.data.model.Guest
 
 class GuestRepository(context: Context) {

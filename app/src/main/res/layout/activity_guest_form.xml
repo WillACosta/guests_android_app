@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="20dp"
-    tools:context=".ui.guest.GuestFormActivity">
+    tools:context=".view.GuestFormActivity">
 
     <EditText
         android:id="@+id/edt_name"

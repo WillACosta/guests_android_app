@@ -1,21 +1,33 @@
-package com.example.guests.ui.all_guests
+package com.example.guests.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import com.example.guests.data.model.Guest
 import com.example.guests.data.repositories.GuestRepository
+import com.example.guests.data.utils.GuestConstants
 
-class AllGuestsViewModel(application: Application) : AndroidViewModel(application) {
+class GuestsViewModel(application: Application) : AndroidViewModel(application) {
     private val repository = GuestRepository(application.applicationContext)
     private val _allGuests = MutableLiveData<List<Guest>>()
 
     val guests: LiveData<List<Guest>> = _allGuests
 
-    fun getAll() {
-        _allGuests.value = repository.getAll()
+    fun getGuests(type: Int = 0) {
+        when (type) {
+            GuestConstants.FILTER.ABSENTS -> {
+                repository.getAbsent()
+            }
+
+            GuestConstants.FILTER.PRESENTS -> {
+                repository.getPresent()
+            }
+
+            else -> {
+                repository.getAll()
+            }
+        }
     }
 
     fun deleteById(id: Int) {

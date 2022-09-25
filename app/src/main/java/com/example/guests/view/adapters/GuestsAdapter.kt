@@ -1,12 +1,12 @@
-package com.example.guests.ui.all_guests.adapters
+package com.example.guests.view.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.guests.data.model.Guest
 import com.example.guests.databinding.RowGuestBinding
-import com.example.guests.ui.all_guests.listeners.OnGuestListener
-import com.example.guests.ui.all_guests.view_holder.GuestsViewHolder
+import com.example.guests.view.listeners.OnGuestListener
+import com.example.guests.view.view_holder.GuestsViewHolder
 
 class GuestsAdapter : RecyclerView.Adapter<GuestsViewHolder>() {
     private var guestsList: List<Guest> = listOf()

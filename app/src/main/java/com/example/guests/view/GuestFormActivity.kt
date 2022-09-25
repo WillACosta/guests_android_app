@@ -1,4 +1,4 @@
-package com.example.guests.ui.guest
+package com.example.guests.view
 
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -9,6 +9,7 @@ import com.example.guests.R
 import com.example.guests.data.model.Guest
 import com.example.guests.data.utils.GuestConstants
 import com.example.guests.databinding.ActivityGuestFormBinding
+import com.example.guests.viewmodel.GuestFormvViewModel
 
 class GuestFormActivity : AppCompatActivity() {
     private lateinit var binding: ActivityGuestFormBinding

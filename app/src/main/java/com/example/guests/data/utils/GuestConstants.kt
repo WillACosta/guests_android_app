@@ -11,4 +11,10 @@ abstract class GuestConstants {
             const val PRESENCE = "presence"
         }
     }
+
+    object FILTER {
+        const val ALL = 0
+        const val PRESENTS = 1
+        const val ABSENTS = 2
+    }
 }

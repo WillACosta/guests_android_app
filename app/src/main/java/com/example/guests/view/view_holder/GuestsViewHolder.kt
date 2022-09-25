@@ -1,10 +1,10 @@
-package com.example.guests.ui.all_guests.view_holder
+package com.example.guests.view.view_holder
 
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.example.guests.data.model.Guest
 import com.example.guests.databinding.RowGuestBinding
-import com.example.guests.ui.all_guests.listeners.OnGuestListener
+import com.example.guests.view.listeners.OnGuestListener
 
 class GuestsViewHolder(private val bind: RowGuestBinding, private val listener: OnGuestListener) :
     RecyclerView.ViewHolder(bind.root) {

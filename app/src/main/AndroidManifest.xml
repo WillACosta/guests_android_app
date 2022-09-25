@@ -14,7 +14,7 @@
         android:theme="@style/Theme.Guests"
         tools:targetApi="31">
         <activity
-            android:name=".ui.guest.GuestFormActivity"
+            android:name=".view.GuestFormActivity"
             android:exported="false"
             android:label="Add Guest" />
         <activity

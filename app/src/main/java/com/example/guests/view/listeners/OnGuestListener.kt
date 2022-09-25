@@ -1,4 +1,4 @@
-package com.example.guests.ui.all_guests.listeners
+package com.example.guests.view.listeners
 
 interface OnGuestListener {
     fun onClick(id: Int)

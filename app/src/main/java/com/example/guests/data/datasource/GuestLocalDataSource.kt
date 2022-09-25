@@ -1,4 +1,4 @@
-package com.example.guests.data.data_sources
+package com.example.guests.data.datasource
 
 import android.content.Context
 import androidx.room.Database
@@ -17,7 +17,7 @@ abstract class GuestLocalDataSource() : RoomDatabase() {
         private lateinit var _instance: GuestLocalDataSource
 
         fun instance(context: Context): GuestLocalDataSource {
-            if (!::_instance.isInitialized) {
+            if (!Companion::_instance.isInitialized) {
 
                 // execute the following instruction in only thread
                 synchronized(GuestLocalDataSource::class) {

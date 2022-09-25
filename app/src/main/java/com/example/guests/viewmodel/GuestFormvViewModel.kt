@@ -1,4 +1,4 @@
-package com.example.guests.ui.guest
+package com.example.guests.viewmodel
 
 
 import android.app.Application
