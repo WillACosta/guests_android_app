@@ -64,6 +64,7 @@ class AllGuestsFragment : Fragment() {
                 val bundle = Bundle()
                 bundle.putInt(GuestConstants.GuestDataSource.GUEST_ID, id)
                 intent.putExtras(bundle)
+                startActivity(intent)
             }
 
             override fun onDelete(id: Int) {

@@ -4,6 +4,7 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.guests.R
 import com.example.guests.data.model.Guest
@@ -35,8 +36,8 @@ class GuestFormActivity : AppCompatActivity() {
         val bundle = intent.extras
 
         if (bundle != null) {
-            val id = bundle.getInt(GuestConstants.GuestDataSource.GUEST_ID)
-            viewModel.getGuestById(id)
+            guestId = bundle.getInt(GuestConstants.GuestDataSource.GUEST_ID)
+            viewModel.getGuestById(guestId)
         }
     }
 
@@ -52,21 +53,21 @@ class GuestFormActivity : AppCompatActivity() {
             }
 
             viewModel.save(guest)
-            finish()
         }
 
-        viewModel.guest.observe(this, {
+        viewModel.guest.observe(this, Observer {
             binding.edtName.setText(it.name)
 
             if (it.presence) binding.radioPresent.isChecked = true
             else binding.radioPresent.isChecked = true
         })
 
-        viewModel.isSaved.observe(this, {
-            if (it.isSuccess) {
+        viewModel.isSaved.observe(this, Observer {
+            if (it.success) {
                 Toast.makeText(applicationContext, it.message, Toast.LENGTH_SHORT).show()
-                finish()
             }
+
+            finish()
         })
     }
 }

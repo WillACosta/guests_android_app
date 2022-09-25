@@ -21,12 +21,18 @@ class GuestFormvViewModel(application: Application) : AndroidViewModel(applicati
     val isSaved: LiveData<SuccessFailure> = _isSaved
 
     fun save(guest: Guest) {
-        val succesFailure = SuccessFailure(true, "Guest is saved :)")
+        val succesFailure = SuccessFailure(false, "")
 
         if (guest.id == 0) {
-            succesFailure.isSuccess = repository.save(guest)
+            succesFailure.success = repository.save(guest)
+            succesFailure.message = "Guest is saved :)"
+
+            _isSaved.value = succesFailure
         } else {
-            succesFailure.isSuccess = repository.update(guest)
+            succesFailure.success = repository.update(guest)
+            succesFailure.message = "Guest is updated :)"
+
+            _isSaved.value = succesFailure
         }
     }
 
